@@ -1,34 +1,41 @@
+//  Library packages
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+// JSON data
+import wordList from './wordList.json'
+
+// Components
+import GuessWord from './GuessWord'
+import Keyboard from './Keyboard'
+import Drawing from './Drawing'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [wordGuess, setWordGuess] = useState(() => {
+    return wordList[Math.floor(Math.random() * wordList.length)]
+  })
+
+  const [guessLetters, setGuessLetters] = useState<string[]>([])
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div style={{
+      maxWidth: '800px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '2rem',
+      margin: '0 auto',
+      alignItems: 'center'
+    }}>
+      <div style={{
+        fontSize: '2rem',
+        textAlign: 'center'
+      }}>
+        Win or Lose
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      
+      <Drawing />
+      <GuessWord />
+      <Keyboard />
+    </div>
   )
 }
 
