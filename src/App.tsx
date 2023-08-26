@@ -2,7 +2,7 @@
 import { useState } from 'react'
 
 // JSON data
-import wordList from './wordList.json'
+import wordList from './helpers/wordList.json'
 
 // Components
 import GuessWord from './GuessWord'
@@ -31,10 +31,12 @@ function App() {
       }}>
         Win or Lose
       </div>
-      
+
       <Drawing />
       <GuessWord />
-      <Keyboard />
+      <div style={{ alignSelf: 'stretch' }}>
+        <Keyboard />
+      </div>
     </div>
   )
 }
