@@ -16,6 +16,8 @@ function App() {
 
   const [guessLetters, setGuessLetters] = useState<string[]>([])
 
+  const incorrectLetters = guessLetters.filter(letter => !wordGuess.includes(letter))
+
   return (
     <div style={{
       maxWidth: '800px',
@@ -32,8 +34,8 @@ function App() {
         Win or Lose
       </div>
 
-      <Drawing />
-      <GuessWord />
+      <Drawing numberGuesses={incorrectLetters.length} />
+      <GuessWord guessLetters={guessLetters} wordGuess={wordGuess} />
       <div style={{ alignSelf: 'stretch' }}>
         <Keyboard />
       </div>

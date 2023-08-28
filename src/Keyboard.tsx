@@ -9,7 +9,7 @@ const Keyboard = () => {
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(75px, 1fr))', gap: '.5rem' }}>
       {keys.map((key) => (
         <button
-          className={styles.btn}
+          className={`${styles.btn}`}
           key={key}
         >
           {key}
