@@ -83,12 +83,13 @@ function App() {
         fontSize: '2rem',
         textAlign: 'center'
       }}>
-        {isWinner ? 'Winner Winner, Chicken Dinner! - Refresh to try again.' : isLoser ? `Nice try, the word is ${wordGuess}! Refresh to try again.` : 'Hangman - Guess the Word'}
-        {/* {isLoser &&  ? wordGuess : ''} */}
+        {isWinner ? 'Winner Winner, Chicken Dinner! - Refresh to try again.' 
+          : isLoser ? `Nice try, the word is ${wordGuess}! Refresh to try again.` 
+          : 'Hangman - Guess the Word'}
       </div>
 
       <Drawing numberGuesses={incorrectLetters.length} />
-      <GuessWord guessLetters={guessLetters} wordGuess={wordGuess} />
+      <GuessWord reveal={isLoser} guessLetters={guessLetters} wordGuess={wordGuess} />
       <div style={{ alignSelf: 'stretch' }}>
         <Keyboard 
           activeLetters={guessLetters.filter(letter => wordGuess.includes(letter))} 
