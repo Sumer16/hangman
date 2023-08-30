@@ -1,6 +1,8 @@
 # Hangman | Guess the Word
 
-### React + TypeScript + Vite
+- This application was developed to learn about making a simple yet good hands-on experience project using React & TypeScript.
+
+### Developed using React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
